@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0394248a-3021-4b42-8d50-b41bb34c9c15" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="f150c89b-74b1-4125-969d-bb89f0964307">
+		<http:request-connection protocol="HTTPS" host="jsonplaceholder.typicode.com"/>
+	</http:request-config>
+	<flow name="rqstpocFlow" doc:id="28442691-4683-4072-9045-05a9e1e83913" >
+		<http:listener doc:name="Listener" doc:id="d7033eac-884e-44d3-88c6-bd1265f53b3d" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c3df1931-d3fa-4ad5-9270-5d4193e82064" message="start request"/>
+		<http:request method="GET" doc:name="Request" doc:id="4d2ade4d-5079-485c-948b-92cbbb93feb4" config-ref="HTTP_Request_configuration" path="/users"/>
+		<logger level="INFO" doc:name="Logger" doc:id="32f23719-c9a7-4ec3-85b5-97268a9e856d" message="end flow"/>
+	</flow>
+</mule>
