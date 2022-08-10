@@ -16,5 +16,6 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<logger level="INFO" doc:name="Logger" doc:id="c3df1931-d3fa-4ad5-9270-5d4193e82064" message="start request"/>
 		<http:request method="GET" doc:name="Request" doc:id="4d2ade4d-5079-485c-948b-92cbbb93feb4" config-ref="HTTP_Request_configuration" path="/users"/>
 		<logger level="INFO" doc:name="Logger" doc:id="32f23719-c9a7-4ec3-85b5-97268a9e856d" message="end flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="6f9360bf-4549-4331-bdb7-b01ba3dc679a" message="end flow"/>
 	</flow>
 </mule>
